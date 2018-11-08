@@ -4,21 +4,20 @@ import torch
 import random
 import numpy as np
 from tqdm import tqdm
-from torch.autograd import Variable
-from torch.nn.parameter import Parameter
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 import math
-import pdb
 from DGCNN_embedding import DGCNN
 from mlp_dropout import MLPClassifier
 from sklearn import metrics
-
-sys.path.append('%s/pytorch_structure2vec-master/s2v_lib' % os.path.dirname(os.path.realpath(__file__)))
 from embedding import EmbedMeanField, EmbedLoopyBP
-
 from util import cmd_args, load_data
+
+
+sys.path.append(
+    '%s/pytorch_structure2vec-master/s2v_lib' % os.path.dirname(
+        os.path.realpath(__file__)))
+
 
 class Classifier(nn.Module):
     def __init__(self):
