@@ -73,7 +73,7 @@ if [ ${fold} == 0 ]; then
   start=`date +%s`
   for i in $(seq 1 10)
   do
-    CUDA_VISIBLE_DEVICES=${GPU} python main.py \
+    CUDA_VISIBLE_DEVICES=${GPU} python3 main.py \
         -seed 1 \
         -data $DATA \
         -fold $i \
@@ -96,7 +96,7 @@ if [ ${fold} == 0 ]; then
   echo "Average accuracy is"
   cat result.txt | awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'
 else
-  CUDA_VISIBLE_DEVICES=${GPU} python main.py \
+  CUDA_VISIBLE_DEVICES=${GPU} python3 main.py \
       -seed 1 \
       -data $DATA \
       -fold $fold \

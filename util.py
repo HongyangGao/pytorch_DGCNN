@@ -1,13 +1,8 @@
 from __future__ import print_function
 import numpy as np
-import random
-from tqdm import tqdm
-import os
-import cPickle as cp
-#import _pickle as cp  # python3 compatability
 import networkx as nx
-import pdb
 import argparse
+
 
 cmd_opt = argparse.ArgumentParser(description='Argparser for graph_classification')
 cmd_opt.add_argument('-mode', default='cpu', help='cpu/gpu')
@@ -35,6 +30,7 @@ cmd_args, _ = cmd_opt.parse_known_args()
 cmd_args.latent_dim = [int(x) for x in cmd_args.latent_dim.split('-')]
 if len(cmd_args.latent_dim) == 1:
     cmd_args.latent_dim = cmd_args.latent_dim[0]
+
 
 class S2VGraph(object):
     def __init__(self, g, label, node_tags=None, node_features=None):
