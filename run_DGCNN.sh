@@ -35,8 +35,8 @@ NCI109)
   learning_rate=0.0001
   ;;
 DD)
-  num_epochs=200
-  learning_rate=0.00001
+  num_epochs=100
+  learning_rate=0.0005
   ;;
 PTC)
   num_epochs=200
@@ -44,11 +44,11 @@ PTC)
   ;;
 PROTEINS)
   num_epochs=100
-  learning_rate=0.00001
+  learning_rate=0.001
   ;;
 COLLAB)
-  num_epochs=300
-  learning_rate=0.0001
+  num_epochs=100
+  learning_rate=0.001
   sortpooling_k=0.9
   ;;
 IMDBBINARY)
