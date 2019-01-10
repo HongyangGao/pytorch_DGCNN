@@ -100,16 +100,10 @@ class GraphPool(nn.Module):
         scores = torch.squeeze(scores)
         scores = self.tanh(scores/100)
         num_nodes = A.shape[0]
-        try:
-            values, idx = torch.topk(scores, int(self.k*num_nodes))
-            new_X = X[idx, :]
-            A = A[idx, :]
-            A = A[:, idx]
-        except Exception as e:
-            print(e)
-            import ipdb
-            ipdb.set_trace()
-            new_X = X
+        values, idx = torch.topk(scores, int(self.k*num_nodes))
+        new_X = X[idx, :]
+        A = A[idx, :]
+        A = A[:, idx]
         return A, new_X, idx
 
 
